@@ -5,7 +5,7 @@ const NavBar = () => {
     <div className="navbar bg-purple-800 text-white">
       <div className="flex-1">
         <Link className="btn btn-ghost normal-case text-xl" href="/">
-          Quper
+          QuPer
         </Link>
       </div>
       <div className="flex-none gap-2">

@@ -8,7 +8,7 @@ function Home() {
   return (
     <div className="bg-gray-100 py-4">
       <Head>
-        <title>Quper</title>
+        <title>QuPer</title>
       </Head>
       <NavBar />
       <Banner />

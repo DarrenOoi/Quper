@@ -19,10 +19,10 @@ const Banner = () => {
         // }}
       >
         <h2 className="text-4xl font-bold mb-8">
-          Welcome to Quper - Your Trusted Privacy Policy Analysing Tool
+          Welcome to QuPer - Your Trusted Privacy Policy Analysing Tool
         </h2>
         <p className="text-lg leading-relaxed text-center mb-8">
-          Introducing Quper - the comprehensive privacy policy analysing tool
+          Introducing QuPer - the comprehensive privacy policy analysing tool
           designed to simplify the process and help you stay compliant
           effortlessly.
         </p>
@@ -40,8 +40,10 @@ const Banner = () => {
         />
         <br></br>
         <br></br>
-        <br></br>
-        <br></br>
+        <input
+          type="file"
+          className="file-input file-input-bordered w-full max-w-xs"
+        />
       </div>
     </div>
   );
