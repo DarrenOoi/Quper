@@ -10,14 +10,16 @@ const Banner = () => {
 
   return (
     <div className="container mx-auto mt-8 px-4">
-      <div
-        className="relative flex flex-col items-center text-black bg-cover bg-center py-20 rounded shadow-lg"
-        // style={{
-        //   backgroundImage: 'url("https://shorturl.at/BV468")',
-        //   backgroundBlendMode: "multiply",
-        //   backgroundColor: "rgba(0, 0, 0, 0.4)",
-        // }}
-      >
+      <div className="relative flex flex-col items-center text-black bg-cover bg-center py-20 rounded shadow-lg">
+        <img
+          src="/Privacy policy-amico.png"
+          alt="Privacy Policy"
+          width="300px"
+          height="150px"
+          style={{
+            mixBlendMode: "multiply",
+          }}
+        />
         <h2 className="text-4xl font-bold mb-8">
           Welcome to QuPer - Your Trusted Privacy Policy Analysing Tool
         </h2>

@@ -9,6 +9,7 @@ const Analysis = ({ name }: AnalysisProps) => {
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
           {name} Analysis Results
         </h2>
+
         <div className="bg-gray-100 p-4 rounded-lg">
           <p className="text-lg md:text-l text-center leading-relaxed">
             Our team has conducted a comprehensive analysis of various privacy
