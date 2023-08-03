@@ -27,6 +27,9 @@ const Footer = () => {
         <a className="link link-hover">Terms of use</a>
         <a className="link link-hover">Privacy policy</a>
         <a className="link link-hover">Cookie policy</a>
+        <a className="link link-hover" href="https://storyset.com/online">
+          Online illustrations by Storyset
+        </a>
       </div>
     </footer>
   );

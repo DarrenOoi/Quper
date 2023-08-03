@@ -6,7 +6,7 @@ import Head from "next/head";
 
 function Home() {
   return (
-    <div className="bg-gray-100 py-4">
+    <div className="bg-gray-100">
       <Head>
         <title>QuPer</title>
       </Head>
