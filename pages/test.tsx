@@ -16,7 +16,7 @@ const Test: React.FC = () => {
         if (response.ok) {
           const responseData = await response.text();
           setData(responseData);
-          console.log(responseData);
+          //console.log(responseData);
         } else {
           console.error(
             'Request failed:',
