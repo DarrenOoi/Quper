@@ -5,7 +5,7 @@ export default async function getText(
   res: NextApiResponse
 ) {
   try {
-    const url = 'https://twitter.com/en/privacy'; // Replace this with the correct URL
+    const url = 'https://httpbin.org/encoding/utf8';
     const response = await fetch(url);
     const fetchedText = await response.text();
 
