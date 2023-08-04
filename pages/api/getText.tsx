@@ -6,20 +6,18 @@ export default async function getText(
   res: NextApiResponse
 ) {
   try {
-    const url = 'https://cheerio.js.org/docs/basics/loading';
+    const { url } = req.body;
     const response = await fetch(url);
     const fetchedText = await response.text();
     const textContent = cheerio.load(fetchedText)('body').text();
 
     const $ = cheerio.load(fetchedText);
-    const headers = $('body')
-      .find('h1, h2, h3, h4, h5, h6')
+    const filteredContent = $('body')
+      .find('h1, h2, h3, h4, h5, h6, p')
       .map((index, element) => $(element).text())
       .get();
 
-    console.log(headers);
-
-    res.status(200).json({ message: textContent });
+    res.status(200).json({ message: filteredContent });
   } catch (error) {
     console.error('Error getting text:', error);
     res.status(500).json({ error: 'An error occurred while getting text' });
