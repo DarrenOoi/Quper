@@ -6,30 +6,10 @@ const Banner = () => {
   const router = useRouter();
   const [query, setQuery] = useState('');
 
-  const fetchData = async () => {
-    try {
-      const response = await fetch('/api/getText', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ url: query }),
-      });
-
-      if (response.ok) {
-        const responseData = await response.text();
-        console.log(responseData);
-      } else {
-        console.error('Request failed:', response.status, response.statusText);
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  };
-
   const handleSearch = () => {
+    router.push(`/policy?url=${encodeURIComponent(query)}`);
     // router.push(`/${query}`);
-    fetchData();
+    // fetchData();
   };
 
   return (
