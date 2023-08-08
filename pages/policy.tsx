@@ -8,18 +8,32 @@ import SideBar from '@/components/SideBar';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import { fetchData } from '@/utils/fetchData';
+import { fetchAnalysis } from '@/utils/fetchAnalysis';
 
 const Policy: NextPage = () => {
   const router = useRouter();
   const url = router.query.url as string;
 
   const [selectedItem, setSelectedItem] = useState('Overview');
-  const [fetchedResultText, setFetchedResultText] = useState<string[]>([]);
-  console.log(url);
+  const [fetchedResultText, setFetchedResultText] = useState('');
+  const [analysis, setAnalysis] = useState('');
 
   useEffect(() => {
-    //url undefined for a second when page re-renders causing a warning due to 'invalid url'
-    fetchData(url).then((data) => setFetchedResultText(data));
+    async function fetchDataAndAnalysis() {
+      if (url) {
+        try {
+          const data = await fetchData(url);
+          setFetchedResultText(data);
+
+          const analysisData = await fetchAnalysis(data);
+          setAnalysis(analysisData);
+        } catch (error) {
+          console.error('Error fetching data or analysis:', error);
+        }
+      }
+    }
+
+    fetchDataAndAnalysis();
   }, [url]);
 
   const handleItemSelected = (itemName: string) => {

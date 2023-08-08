@@ -10,6 +10,7 @@ export const fetchData = async (url: string) => {
 
     if (response.ok) {
       const responseData = await response.json();
+      // console.log('this is text:' + responseData.message);
       return responseData.message;
     } else {
       console.error('Request failed:', response.status, response.statusText);
