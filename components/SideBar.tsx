@@ -21,11 +21,11 @@ const SideBar = (props: Props) => {
             <a
               style={{
                 backgroundColor:
-                  selected === 'Overview' ? '#C8A2C8' : 'transparent',
+                  selected === 'Completeness' ? '#C8A2C8' : 'transparent',
               }}
-              onClick={() => onSelect('Overview')}
+              onClick={() => onSelect('Completeness')}
             >
-              Overview
+              Completeness
             </a>
           </li>
           <li>
@@ -37,17 +37,6 @@ const SideBar = (props: Props) => {
               onClick={() => onSelect('Timeliness')}
             >
               Timeliness
-            </a>
-          </li>
-          <li>
-            <a
-              style={{
-                backgroundColor:
-                  selected === 'Completeness' ? '#C8A2C8' : 'transparent',
-              }}
-              onClick={() => onSelect('Completeness')}
-            >
-              Completeness
             </a>
           </li>
           <li>
