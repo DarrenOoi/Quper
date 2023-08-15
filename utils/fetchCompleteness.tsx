@@ -1,6 +1,6 @@
-export const fetchAnalysis = async (url: string) => {
+export const fetchCompleteness = async (url: string) => {
   try {
-    const response = await fetch('http://localhost:5000/analyse', {
+    const response = await fetch('http://localhost:5000/completeness', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -10,7 +10,7 @@ export const fetchAnalysis = async (url: string) => {
 
     if (response.ok) {
       const responseData = await response.json();
-      console.log('this is analysis:' + responseData.result);
+      console.log('this is completeness:' + responseData.result);
       return responseData.result;
     } else {
       console.error(

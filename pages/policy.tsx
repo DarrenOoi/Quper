@@ -7,8 +7,9 @@ import { NextPage } from 'next';
 import SideBar from '@/components/SideBar';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
-import { fetchData } from '@/utils/fetchData';
-import { fetchAnalysis } from '@/utils/fetchAnalysis';
+import { fetchCompleteness } from '@/utils/fetchCompleteness';
+import { fetchAvailability } from '@/utils/fetchAvailability';
+import Availability from '@/components/Availability';
 
 const Policy: NextPage = () => {
   const router = useRouter();
@@ -16,19 +17,23 @@ const Policy: NextPage = () => {
 
   const [selectedItem, setSelectedItem] = useState('Completeness');
   const [dataArray, setDataArray] = useState(null);
+  const [availabilityArray, setAvailabilityArray] = useState(null);
 
   useEffect(() => {
     async function fetchDataAndAnalysis() {
       if (url) {
         try {
-          const data = await fetchAnalysis(url);
-          // const data = await fetchData(url);
-          console.log(data);
+          const data = await fetchCompleteness(url);
           setDataArray(data);
-          // setFetchedResultText(data);
 
-          // const analysisData = await fetchAnalysis(data);
-          // setAnalysis(analysisData);
+          const availabilityData = await fetchAvailability(url);
+          console.log(availabilityData);
+          const languageArray = availabilityData
+            .split(', ')
+            .map((language: string) =>
+              language.replace(/"/g, '').replace(/\[|\]/g, '')
+            );
+          setAvailabilityArray(languageArray);
         } catch (error) {
           console.error('Error fetching data or analysis:', error);
         }
@@ -57,7 +62,11 @@ const Policy: NextPage = () => {
             <Completeness result={dataArray} />
           )}
           {selectedItem === 'Timeliness' && <div>Timeliness Content</div>}
-          {selectedItem === 'Availability' && <div>Availability Content</div>}
+          {selectedItem === 'Availability' && (
+            <div>
+              <Availability languages={availabilityArray} />
+            </div>
+          )}
           {selectedItem === 'Readability' && <div>Readability Content</div>}
         </div>
       </div>

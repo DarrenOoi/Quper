@@ -1,7 +1,7 @@
 import CardList from './CardList';
 
 interface CompletenessProps {
-  result: (number | number[])[] | null; // Using (number | number[])[] to allow inner number arrays
+  result: (number | number[])[] | null;
 }
 
 const Completeness = ({ result }: CompletenessProps) => {
