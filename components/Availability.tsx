@@ -14,7 +14,9 @@ const Availability = ({ languages }: AvailabilityProps) => {
           {languages ? (
             languages.map((language, index) => <li key={index}>{language}</li>)
           ) : (
-            <p>Loading...</p>
+            <div className='flex justify-center items-center'>
+              <span className='loading loading-spinner loading-lg'></span>
+            </div>
           )}
         </ul>
       </div>

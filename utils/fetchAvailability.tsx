@@ -14,7 +14,7 @@ export const fetchAvailability = async (url: string) => {
       return responseData.result;
     } else {
       console.error(
-        'Request failed (analysis):',
+        'Request failed (availability):',
         response.status,
         response.statusText
       );

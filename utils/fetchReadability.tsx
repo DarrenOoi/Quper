@@ -1,6 +1,6 @@
-export const fetchCompleteness = async (url: string) => {
+export const fetchReadability = async (url: string) => {
   try {
-    const response = await fetch('http://localhost:5000/completeness', {
+    const response = await fetch('http://localhost:5000/readability', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -10,11 +10,11 @@ export const fetchCompleteness = async (url: string) => {
 
     if (response.ok) {
       const responseData = await response.json();
-      console.log('this is completeness:' + responseData.result);
+      console.log('this is readability:' + responseData.result);
       return responseData.result;
     } else {
       console.error(
-        'Request failed (completeness):',
+        'Request failed (readability):',
         response.status,
         response.statusText
       );

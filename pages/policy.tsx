@@ -10,6 +10,8 @@ import { useEffect, useState } from 'react';
 import { fetchCompleteness } from '@/utils/fetchCompleteness';
 import { fetchAvailability } from '@/utils/fetchAvailability';
 import Availability from '@/components/Availability';
+import { fetchReadability } from '@/utils/fetchReadability';
+import Readability from '@/components/Readability';
 
 const Policy: NextPage = () => {
   const router = useRouter();
@@ -18,6 +20,7 @@ const Policy: NextPage = () => {
   const [selectedItem, setSelectedItem] = useState('Completeness');
   const [dataArray, setDataArray] = useState(null);
   const [availabilityArray, setAvailabilityArray] = useState(null);
+  const [metrics, setMetrics] = useState(null);
 
   useEffect(() => {
     async function fetchDataAndAnalysis() {
@@ -26,8 +29,10 @@ const Policy: NextPage = () => {
           const data = await fetchCompleteness(url);
           setDataArray(data);
 
+          const readabilityData = await fetchReadability(url);
+          setMetrics(JSON.parse(readabilityData));
+
           const availabilityData = await fetchAvailability(url);
-          console.log(availabilityData);
           const languageArray = availabilityData
             .split(', ')
             .map((language: string) =>
@@ -67,7 +72,11 @@ const Policy: NextPage = () => {
               <Availability languages={availabilityArray} />
             </div>
           )}
-          {selectedItem === 'Readability' && <div>Readability Content</div>}
+          {selectedItem === 'Readability' && (
+            <div>
+              <Readability metrics={metrics} />
+            </div>
+          )}
         </div>
       </div>
       {/* <Footer /> */}
