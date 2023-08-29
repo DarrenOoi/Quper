@@ -1,3 +1,5 @@
+import Table from './Table';
+
 interface RedabilityProps {
   metrics: Record<string, number> | null;
 }
@@ -13,11 +15,7 @@ const Readability = ({ metrics }: RedabilityProps) => {
         <ul>
           {metrics ? (
             <div>
-              {Object.entries(metrics).map(([metric, value]) => (
-                <p key={metric}>
-                  {metric}: {value}
-                </p>
-              ))}
+              <Table metrics={metrics} />
             </div>
           ) : (
             <div className='flex justify-center items-center'>

@@ -46,7 +46,6 @@ const Banner = () => {
         />
         <br></br>
         <br></br>
-        <FileForm />
       </div>
     </div>
   );
