@@ -12,6 +12,7 @@ import { fetchAvailability } from '@/utils/fetchAvailability';
 import Availability from '@/components/Availability';
 import { fetchReadability } from '@/utils/fetchReadability';
 import Readability from '@/components/Readability';
+import { fetchTimeliness } from '@/utils/fetchTimeliness';
 
 const Policy: NextPage = () => {
   const router = useRouter();
@@ -19,26 +20,27 @@ const Policy: NextPage = () => {
 
   const [selectedItem, setSelectedItem] = useState('Completeness');
   const [dataArray, setDataArray] = useState(null);
-  const [availabilityArray, setAvailabilityArray] = useState(null);
+  const [availability, setAvailability] = useState(null);
   const [metrics, setMetrics] = useState(null);
 
   useEffect(() => {
     async function fetchDataAndAnalysis() {
       if (url) {
         try {
-          const data = await fetchCompleteness(url);
-          setDataArray(data);
+          const [data, readabilityData] = await Promise.all([
+            fetchCompleteness(url),
+            fetchReadability(url),
+          ]);
+          // const data = await fetchCompleteness(url);
+          setDataArray(JSON.parse(data));
 
-          const readabilityData = await fetchReadability(url);
+          // const readabilityData = await fetchReadability(url);
           setMetrics(JSON.parse(readabilityData));
 
           const availabilityData = await fetchAvailability(url);
-          const languageArray = availabilityData
-            .split(', ')
-            .map((language: string) =>
-              language.replace(/"/g, '').replace(/\[|\]/g, '')
-            );
-          setAvailabilityArray(languageArray);
+          setAvailability(JSON.parse(availabilityData));
+
+          const timelinessData = await fetchTimeliness(url);
         } catch (error) {
           console.error('Error fetching data or analysis:', error);
         }
@@ -66,17 +68,17 @@ const Policy: NextPage = () => {
           {selectedItem === 'Completeness' && (
             <Completeness result={dataArray} />
           )}
-          {selectedItem === 'Timeliness' && <div>Timeliness Content</div>}
-          {selectedItem === 'Availability' && (
-            <div>
-              <Availability languages={availabilityArray} />
-            </div>
-          )}
           {selectedItem === 'Readability' && (
             <div>
               <Readability metrics={metrics} />
             </div>
           )}
+          {selectedItem === 'Availability' && (
+            <div>
+              <Availability availability={availability} />
+            </div>
+          )}
+          {selectedItem === 'Timeliness' && <div>Timeliness Content</div>}
         </div>
       </div>
       {/* <Footer /> */}
