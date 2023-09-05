@@ -1,7 +1,5 @@
 import 'tailwindcss/tailwind.css';
 import NavBar from '@/components/NavBar';
-import Footer from '@/components/Footer';
-import Completeness from '@/components/Completeness';
 import { useRouter } from 'next/router';
 import { NextPage } from 'next';
 import SideBar from '@/components/SideBar';
@@ -9,9 +7,11 @@ import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import { fetchCompleteness } from '@/utils/fetchCompleteness';
 import { fetchAvailability } from '@/utils/fetchAvailability';
-import Availability from '@/components/Availability';
 import { fetchReadability } from '@/utils/fetchReadability';
-import Readability from '@/components/Readability';
+import Availability from '@/components/Display/Availability';
+import Completeness from '@/components/Display/Completeness';
+import Readability from '@/components/Display/Readability';
+import Timeliness from '@/components/Display/Timeliness';
 import { fetchTimeliness } from '@/utils/fetchTimeliness';
 
 const Policy: NextPage = () => {
@@ -19,9 +19,12 @@ const Policy: NextPage = () => {
   const url = router.query.url as string;
 
   const [selectedItem, setSelectedItem] = useState('Completeness');
-  const [dataArray, setDataArray] = useState(null);
+  const [completeness, setCompleteness] = useState(null);
   const [availability, setAvailability] = useState(null);
-  const [metrics, setMetrics] = useState(null);
+  const [readability, setReadability] = useState(null);
+  const [timeliness, setTimeliness] = useState(null);
+
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     async function fetchDataAndAnalysis() {
@@ -31,18 +34,25 @@ const Policy: NextPage = () => {
             fetchCompleteness(url),
             fetchReadability(url),
           ]);
+
+          if (data === false || readabilityData === false) {
+            setError(true);
+          }
           // const data = await fetchCompleteness(url);
-          setDataArray(JSON.parse(data));
+          setCompleteness(data);
 
           // const readabilityData = await fetchReadability(url);
-          setMetrics(JSON.parse(readabilityData));
+          setReadability(JSON.parse(readabilityData));
 
           const availabilityData = await fetchAvailability(url);
           setAvailability(JSON.parse(availabilityData));
 
           const timelinessData = await fetchTimeliness(url);
+          console.log(timelinessData);
+          setTimeliness(timelinessData);
         } catch (error) {
           console.error('Error fetching data or analysis:', error);
+          setError(true);
         }
       }
     }
@@ -66,11 +76,11 @@ const Policy: NextPage = () => {
         </div>
         <div className='w-full lg:w-auto px-4 py-8 mx-auto'>
           {selectedItem === 'Completeness' && (
-            <Completeness result={dataArray} />
+            <Completeness result={completeness} error={error} />
           )}
           {selectedItem === 'Readability' && (
             <div>
-              <Readability metrics={metrics} />
+              <Readability metrics={readability} error={error} />
             </div>
           )}
           {selectedItem === 'Availability' && (
@@ -78,7 +88,9 @@ const Policy: NextPage = () => {
               <Availability availability={availability} />
             </div>
           )}
-          {selectedItem === 'Timeliness' && <div>Timeliness Content</div>}
+          {selectedItem === 'Timeliness' && (
+            <Timeliness result={timeliness} error={error} />
+          )}
         </div>
       </div>
       {/* <Footer /> */}

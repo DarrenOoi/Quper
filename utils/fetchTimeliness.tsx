@@ -10,8 +10,9 @@ export const fetchTimeliness = async (url: string) => {
 
     if (response.ok) {
       const responseData = await response.json();
-      console.log('this is timeliness:' + responseData.result);
-      return responseData.result;
+      const actualData = JSON.parse(responseData.result);
+      // console.log('this is timeliness:' + responseData);
+      return actualData;
     } else {
       console.error(
         'Request failed (timeliness):',
@@ -22,6 +23,6 @@ export const fetchTimeliness = async (url: string) => {
     }
   } catch (error) {
     console.error('Error:', error);
-    return null;
+    return false;
   }
 };

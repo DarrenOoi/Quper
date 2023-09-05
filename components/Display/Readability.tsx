@@ -1,10 +1,11 @@
-import Table from './Table';
+import Table from '../Table';
 
 interface RedabilityProps {
   metrics: Record<string, number> | null;
+  error: boolean;
 }
 
-const Readability = ({ metrics }: RedabilityProps) => {
+const Readability = ({ metrics, error }: RedabilityProps) => {
   return (
     <div className='container mx-auto mt-8 px-4 h-screen'>
       <div>
@@ -17,6 +18,8 @@ const Readability = ({ metrics }: RedabilityProps) => {
             <div>
               <Table metrics={metrics} />
             </div>
+          ) : error ? (
+            <p>An error has occurred</p>
           ) : (
             <div className='flex justify-center items-center'>
               <span className='loading loading-spinner loading-lg'></span>

@@ -22,6 +22,6 @@ export const fetchReadability = async (url: string) => {
     }
   } catch (error) {
     console.error('Error:', error);
-    return null;
+    return false;
   }
 };

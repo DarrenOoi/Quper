@@ -10,8 +10,13 @@ export const fetchCompleteness = async (url: string) => {
 
     if (response.ok) {
       const responseData = await response.json();
+      const actualData = JSON.parse(responseData.result);
       console.log('this is completeness:' + responseData.result);
-      return responseData.result;
+      if (actualData === false) {
+        return false;
+      } else {
+        return actualData;
+      }
     } else {
       console.error(
         'Request failed (completeness):',
@@ -22,6 +27,6 @@ export const fetchCompleteness = async (url: string) => {
     }
   } catch (error) {
     console.error('Error:', error);
-    return null;
+    return false;
   }
 };
