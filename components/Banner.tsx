@@ -75,7 +75,7 @@ const Banner = () => {
             }
           }}
           placeholder='Input Privacy Policy URL'
-          className='input input-bordered w-full max-w-xs'
+          className='input input-bordered w-full max-w-xs bg-white'
         />
         <br></br>
         {error ? (

@@ -9,6 +9,7 @@ function Home() {
     <div className='bg-gray-100'>
       <Head>
         <title>QuPer</title>
+        <link rel='icon' href='/favicon.ico' />
       </Head>
       <NavBar />
       <Banner />
