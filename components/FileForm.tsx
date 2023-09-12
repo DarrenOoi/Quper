@@ -1,4 +1,3 @@
-import { extractTextFromPDF } from '@/utils/extractPDF';
 import { useState } from 'react';
 
 const FileForm = () => {
@@ -8,7 +7,6 @@ const FileForm = () => {
     event.preventDefault();
     if (selectedFile && selectedFile !== null) {
       console.log('Selected File:', selectedFile.name);
-      extractTextFromPDF();
     }
   };
 
