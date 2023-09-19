@@ -34,7 +34,6 @@ const Policy: NextPage = () => {
             fetchCompleteness(url),
             fetchReadability(url),
           ]);
-
           if (data === false || readabilityData === false) {
             setError(true);
           }
@@ -43,10 +42,8 @@ const Policy: NextPage = () => {
 
           // const readabilityData = await fetchReadability(url);
           setReadability(JSON.parse(readabilityData));
-
           const availabilityData = await fetchAvailability(url);
           setAvailability(JSON.parse(availabilityData));
-
           const timelinessData = await fetchTimeliness(url);
           setTimeliness(timelinessData);
         } catch (error) {
