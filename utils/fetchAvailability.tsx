@@ -1,15 +1,12 @@
 export const fetchAvailability = async (url: string) => {
   try {
-    const response = await fetch(
-      'https://quper-backend.onrender.com/availability',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ url: url }),
-      }
-    );
+    const response = await fetch('http://34.72.32.23:8000/availability', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ url: url }),
+    });
 
     if (response.ok) {
       const responseData = await response.json();

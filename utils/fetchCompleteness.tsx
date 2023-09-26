@@ -1,7 +1,8 @@
 export const fetchCompleteness = async (url: string) => {
   try {
     const response = await fetch(
-      'https://quper-backend.onrender.com/completeness',
+      'http://34.72.32.23:8000/completeness',
+      // 'https://quper-backend.onrender.com/completeness',
       // 'http://localhost:5000/completeness',
 
       {

@@ -1,7 +1,9 @@
 export const fetchReadability = async (url: string) => {
   try {
     const response = await fetch(
-      'https://quper-backend.onrender.com/readability',
+      'http://34.72.32.23:8000/readability',
+
+      // 'https://quper-backend.onrender.com/readability',
       {
         method: 'POST',
         headers: {
