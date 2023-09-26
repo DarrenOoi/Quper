@@ -1,6 +1,6 @@
 export const fetchAvailability = async (url: string) => {
   try {
-    const response = await fetch('http://34.72.32.23:8000/availability', {
+    const response = await fetch('https://34.123.198.64:8000/availability', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

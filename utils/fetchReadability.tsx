@@ -1,7 +1,7 @@
 export const fetchReadability = async (url: string) => {
   try {
     const response = await fetch(
-      'http://34.72.32.23:8000/readability',
+      'https://34.123.198.64:8000/readability',
 
       // 'https://quper-backend.onrender.com/readability',
       {
