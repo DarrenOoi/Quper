@@ -13,6 +13,8 @@ import Completeness from '@/components/Display/Completeness';
 import Readability from '@/components/Display/Readability';
 import Timeliness from '@/components/Display/Timeliness';
 import { fetchTimeliness } from '@/utils/fetchTimeliness';
+import ButtonGroup from '@/components/ButtonGroup';
+import Footer from '@/components/Footer';
 
 const Policy: NextPage = () => {
   const router = useRouter();
@@ -66,10 +68,13 @@ const Policy: NextPage = () => {
         <title>QuPer</title>
       </Head>
       <NavBar />
+      <div className='flex justify-center py-5'>
+        <ButtonGroup onSelect={handleItemSelected} selected={selectedItem} />
+      </div>
       <div className='flex'>
-        <div className='hidden lg:block w-60 h-screen bg-base-200'>
+        {/* <div className='hidden lg:block w-60 h-screen bg-base-200'>
           <SideBar onSelect={handleItemSelected} selected={selectedItem} />
-        </div>
+        </div> */}
         <div className='w-full lg:w-auto px-4 py-8 mx-auto'>
           {selectedItem === 'Completeness' && (
             <Completeness result={completeness} error={error} />
@@ -89,7 +94,7 @@ const Policy: NextPage = () => {
           )}
         </div>
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };

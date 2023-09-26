@@ -23,7 +23,7 @@ interface CompletenessProps {
 
 const Completeness = ({ result, error }: CompletenessProps) => {
   return (
-    <div className='container mx-auto mt-8 px-4 h-screen'>
+    <div className='container mx-auto mt-8 h-screen'>
       <div>
         <h2 className='text-3xl md:text-4xl font-bold mb-4 text-center'>
           Completeness
