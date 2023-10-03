@@ -7,12 +7,21 @@ interface RedabilityProps {
 
 const Readability = ({ metrics, error }: RedabilityProps) => {
   return (
-    <div className='container mx-auto mt-8 px-4 h-screen'>
-      <div>
-        <h2 className='text-3xl md:text-4xl font-bold mb-4 text-center'>
-          Readability
-        </h2>
-
+    <div className='container mx-auto mt-8 h-screen'>
+      <div className='mx-64 my-4'>
+        <text className='text-black font-bold text-xl'>
+          <text className='text-teal-400'>READABILITY</text> ensures that the
+          privacy policy is written in a clear and understandable manner. This
+          metric assesses whether the policy uses proper grammar, syntax, and
+          organisation, making it easier for users to
+          <text className='text-teal-400'> COMPREHEND </text>how their data is
+          treated and their privacy rights.
+        </text>
+      </div>
+      <h2 className='text-3xl md:text-4xl font-bold mb-4 text-center'>
+        Readability
+      </h2>
+      <div className='flex justify-center items-center bg-white rounded-xl'>
         <ul>
           {metrics ? (
             <div>

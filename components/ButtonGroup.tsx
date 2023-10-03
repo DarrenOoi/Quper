@@ -8,36 +8,36 @@ const ButtonGroup = (props: Props) => {
   return (
     <div className='btn-group'>
       <button
-        className='btn'
+        className='btn btn-ghost '
         style={{
-          backgroundColor: selected === 'Completeness' ? '#C8A2C8' : '#E9D5FF',
+          backgroundColor: selected === 'Completeness' ? '#A1A1AA' : undefined,
         }}
         onClick={() => onSelect('Completeness')}
       >
         Completeness
       </button>
       <button
-        className='btn'
+        className='btn btn-ghost '
         style={{
-          backgroundColor: selected === 'Readability' ? '#C8A2C8' : '#E9D5FF',
+          backgroundColor: selected === 'Readability' ? '#A1A1AA' : undefined,
         }}
         onClick={() => onSelect('Readability')}
       >
         Readability
       </button>{' '}
       <button
-        className='btn'
+        className='btn btn-ghost '
         style={{
-          backgroundColor: selected === 'Availability' ? '#C8A2C8' : '#E9D5FF',
+          backgroundColor: selected === 'Availability' ? '#A1A1AA' : undefined,
         }}
         onClick={() => onSelect('Availability')}
       >
         Availability
       </button>{' '}
       <button
-        className='btn'
+        className='btn btn-ghost '
         style={{
-          backgroundColor: selected === 'Timeliness' ? '#C8A2C8' : '#E9D5FF',
+          backgroundColor: selected === 'Timeliness' ? '#A1A1AA' : undefined,
         }}
         onClick={() => onSelect('Timeliness')}
       >

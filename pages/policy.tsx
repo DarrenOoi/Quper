@@ -2,7 +2,7 @@ import 'tailwindcss/tailwind.css';
 import NavBar from '@/components/NavBar';
 import { useRouter } from 'next/router';
 import { NextPage } from 'next';
-import SideBar from '@/components/SideBar';
+import Button from '@/components/Button';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import { fetchCompleteness } from '@/utils/fetchCompleteness';
@@ -15,9 +15,14 @@ import Timeliness from '@/components/Display/Timeliness';
 import { fetchTimeliness } from '@/utils/fetchTimeliness';
 import ButtonGroup from '@/components/ButtonGroup';
 import Footer from '@/components/Footer';
+import VerticalLine from '@/components/VerticalLine';
 
 const Policy: NextPage = () => {
   const router = useRouter();
+
+  const handleClick = () => {
+    router.push('/');
+  };
   const url = router.query.url as string;
 
   const [selectedItem, setSelectedItem] = useState('Completeness');
@@ -68,14 +73,21 @@ const Policy: NextPage = () => {
         <title>QuPer</title>
       </Head>
       <NavBar />
+      <div className='m-4'>
+        <Button text='Back to' handleClick={handleClick} boldText='Input' />
+      </div>
       <div className='flex justify-center py-5'>
         <ButtonGroup onSelect={handleItemSelected} selected={selectedItem} />
       </div>
       <div className='flex'>
+        {/* <div className='flex items-center justify-center ml-24'>
+          <VerticalLine />
+        </div> */}
         {/* <div className='hidden lg:block w-60 h-screen bg-base-200'>
           <SideBar onSelect={handleItemSelected} selected={selectedItem} />
         </div> */}
-        <div className='w-full lg:w-auto px-4 py-8 mx-auto'>
+        {/* <div className='w-full lg:w-auto px-4 '> */}
+        <div>
           {selectedItem === 'Completeness' && (
             <Completeness result={completeness} error={error} />
           )}

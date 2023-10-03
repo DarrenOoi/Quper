@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import FileForm from './FileForm';
+import Button from './Button';
 
 const Banner = () => {
   const router = useRouter();
@@ -65,19 +66,26 @@ const Banner = () => {
           designed to simplify the process and help you stay compliant
           effortlessly.
         </p>
-        <input
-          type='text'
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-          onKeyDown={(event) => {
-            if (event.key === 'Enter') {
-              handleSearch();
-            }
-          }}
-          placeholder='Input Privacy Policy URL'
-          className='input input-bordered w-full max-w-xs bg-white'
-        />
-        <br></br>
+        <div className='flex my-2'>
+          <input
+            type='text'
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter') {
+                handleSearch();
+              }
+            }}
+            placeholder='Input Privacy Policy URL'
+            className='input input-bordered bg-white text-black rounded-full'
+            style={{ width: '600px' }}
+          />
+          <Button
+            text='Click for the'
+            boldText='Analysis'
+            handleClick={handleSearch}
+          />
+        </div>
         {error ? (
           <div className='alert alert-error p-3 flex w-1/3'>
             <svg
