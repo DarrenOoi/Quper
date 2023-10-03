@@ -1,3 +1,5 @@
+import VerticalLine from '../VerticalLine';
+
 interface availabilityData {
   languages: string;
   externalLinks: {
@@ -29,15 +31,22 @@ const Availability = ({ availability }: AvailabilityProps) => {
           made.
         </text>
       </div>
-      <div>
-        <h2 className='text-3xl md:text-4xl font-bold mb-4 text-center'>
+      <div className='mx-auto flex justify-center mt-12'>
+        {/* <h2 className='text-3xl md:text-4xl font-bold mb-4 text-center'>
           Availability
-        </h2>
+        </h2> */}
+        {availability && (
+          <div className='flex items-center justify-center'>
+            <VerticalLine />
+          </div>
+        )}
 
         {availability ? (
-          <div className='bg-[#5F7A95] rounded-xl'>
+          <div
+            className='bg-white rounded-xl flex flex-col px-10 py-10 justify-center'
+            style={{ width: '600px' }}
+          >
             <p>Languages : {languageArray.join(',')}</p>
-
             <h2>External Links</h2>
             <ul>
               {availability.externalLinks.map((linkInfo, index) => (

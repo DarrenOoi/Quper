@@ -1,3 +1,5 @@
+import VerticalLine from '../VerticalLine';
+
 interface data {
   start: string;
   end: string;
@@ -24,30 +26,33 @@ const Timeliness = ({ result, error }: TimelinessProps) => {
           reflecting any changes in the app's data practices or privacy laws.
         </text>
       </div>
-      <div>
-        <h2 className='text-3xl md:text-4xl font-bold mb-4 text-center'>
+      <div className='mx-auto flex justify-center mt-12'>
+        {/* <h2 className='text-3xl md:text-4xl font-bold mb-4 text-center'>
           Timeliness
-        </h2>
-
-        <div className='bg-white rounded-xl'>
-          <div className='flex justify-center'>
-            {result ? (
-              <div>
-                <p>Start: {result.start}</p>
-                <p>End: {result.end}</p>
-                <p>Captures: {result.captures}</p>
-                <p>Duplicates: {result.duplicates}</p>
-                <p>Uniques: {result.uniques}</p>
-              </div>
-            ) : error ? (
-              <p>An error has occurred</p>
-            ) : (
-              <div className='flex justify-center items-center'>
-                <span className='loading loading-spinner loading-lg'></span>
-              </div>
-            )}
+        </h2> */}
+        {result && (
+          <div className='flex items-center justify-center'>
+            <VerticalLine />
           </div>
-        </div>
+        )}
+        {result ? (
+          <div
+            className='bg-white rounded-xl px-10 flex flex-col justify-center'
+            style={{ width: '600px' }}
+          >
+            <p>Start: {result.start}</p>
+            <p>End: {result.end}</p>
+            <p>Captures: {result.captures}</p>
+            <p>Duplicates: {result.duplicates}</p>
+            <p>Uniques: {result.uniques}</p>
+          </div>
+        ) : error ? (
+          <p>An error has occurred</p>
+        ) : (
+          <div className='flex justify-center items-center'>
+            <span className='loading loading-spinner loading-lg'></span>
+          </div>
+        )}
       </div>
     </div>
   );

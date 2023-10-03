@@ -39,12 +39,14 @@ const Completeness = ({ result, error }: CompletenessProps) => {
       </h2> */}
 
       <div className='mx-auto flex justify-center mt-12'>
-        <div className='flex items-center justify-center'>
-          <VerticalLine />
-        </div>
+        {result && (
+          <div className='flex items-center justify-center'>
+            <VerticalLine />
+          </div>
+        )}
         {result ? (
           <div
-            className='bg-white rounded-xl px-10 py-10 flex flex-col justify-center'
+            className='bg-white rounded-xl px-10 flex flex-col justify-center'
             style={{ width: '600px' }}
           >
             <p>Type: {result.type}</p>

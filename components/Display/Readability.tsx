@@ -1,4 +1,5 @@
 import Table from '../Table';
+import VerticalLine from '../VerticalLine';
 
 interface RedabilityProps {
   metrics: Record<string, number> | null;
@@ -18,13 +19,23 @@ const Readability = ({ metrics, error }: RedabilityProps) => {
           treated and their privacy rights.
         </text>
       </div>
-      <h2 className='text-3xl md:text-4xl font-bold mb-4 text-center'>
+      {/* <h2 className='text-3xl md:text-4xl font-bold mb-4 text-center'>
         Readability
-      </h2>
-      <div className='flex justify-center items-center bg-white rounded-xl'>
+      </h2> */}
+      {/* <div className='flex justify-center items-center bg-white rounded-xl'> */}
+      <div className='mx-auto flex justify-center mt-12'>
+        {metrics && (
+          <div className='flex items-center justify-center'>
+            <VerticalLine />
+          </div>
+        )}
         <ul>
           {metrics ? (
-            <div>
+            <div
+              className='bg-white rounded-xl flex items-center justify-center'
+              style={{ width: '600px' }}
+            >
+              {' '}
               <Table metrics={metrics} />
             </div>
           ) : error ? (

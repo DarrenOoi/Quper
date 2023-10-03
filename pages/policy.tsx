@@ -106,7 +106,6 @@ const Policy: NextPage = () => {
           )}
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
