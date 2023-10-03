@@ -44,7 +44,7 @@ const Availability = ({ availability }: AvailabilityProps) => {
         {availability ? (
           <div
             className='bg-white rounded-xl flex flex-col px-10 py-10 justify-center'
-            style={{ width: '600px' }}
+            style={{ width: '900px' }}
           >
             <p>Languages : {languageArray.join(',')}</p>
             <h2>External Links</h2>

@@ -47,9 +47,9 @@ const Completeness = ({ result, error }: CompletenessProps) => {
         {result ? (
           <div
             className='bg-white rounded-xl px-10 flex flex-col justify-center'
-            style={{ width: '600px' }}
+            style={{ width: '900px' }}
           >
-            <p>Type: {result.type}</p>
+            {/* <p>Type: {result.type}</p>
             <p>Cookie: {result.cookie}</p>
             <p>Share: {result.share}</p>
             <p>Security: {result.security}</p>
@@ -61,7 +61,8 @@ const Completeness = ({ result, error }: CompletenessProps) => {
             <p>Provide: {result.provide}</p>
             <p>Retention: {result.retention}</p>
             <p>Use Data: {result.useData}</p>
-            <p>Order: {result.order.join(', ')}</p>
+            <p>Order: {result.order.join(', ')}</p> */}
+            <CardList result={result} />
           </div>
         ) : error ? (
           <p>An error has occurred</p>

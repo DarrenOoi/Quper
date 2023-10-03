@@ -38,7 +38,7 @@ const Timeliness = ({ result, error }: TimelinessProps) => {
         {result ? (
           <div
             className='bg-white rounded-xl px-10 flex flex-col justify-center'
-            style={{ width: '600px' }}
+            style={{ width: '900px' }}
           >
             <p>Start: {result.start}</p>
             <p>End: {result.end}</p>

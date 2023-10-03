@@ -33,7 +33,7 @@ const Readability = ({ metrics, error }: RedabilityProps) => {
           {metrics ? (
             <div
               className='bg-white rounded-xl flex items-center justify-center'
-              style={{ width: '600px' }}
+              style={{ width: '900px' }}
             >
               {' '}
               <Table metrics={metrics} />
