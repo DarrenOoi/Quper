@@ -1,5 +1,6 @@
 import { Key } from 'react';
 import VerticalLine from '../VerticalLine';
+// @ts-ignore
 import { findFlagUrlByIso2Code } from 'country-flags-svg';
 
 interface availabilityData {
