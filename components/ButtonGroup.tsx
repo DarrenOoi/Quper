@@ -8,37 +8,41 @@ const ButtonGroup = (props: Props) => {
   return (
     <div className='btn-group'>
       <button
-        className='btn btn-ghost '
-        style={{
-          backgroundColor: selected === 'Completeness' ? '#A1A1AA' : undefined,
-        }}
+        className={
+          selected === 'Completeness'
+            ? 'btn btn-ghost btn-sm text-teal-400 text-lg font-bold'
+            : 'btn btn-ghost btn-sm text-[#7895B1] text-lg font-bold'
+        }
         onClick={() => onSelect('Completeness')}
       >
         Completeness
       </button>
       <button
-        className='btn btn-ghost '
-        style={{
-          backgroundColor: selected === 'Readability' ? '#A1A1AA' : undefined,
-        }}
+        className={
+          selected === 'Readability'
+            ? 'btn btn-ghost btn-sm text-teal-400 text-lg font-bold'
+            : 'btn btn-ghost btn-sm text-[#7895B1] text-lg font-bold'
+        }
         onClick={() => onSelect('Readability')}
       >
         Readability
       </button>{' '}
       <button
-        className='btn btn-ghost '
-        style={{
-          backgroundColor: selected === 'Availability' ? '#A1A1AA' : undefined,
-        }}
+        className={
+          selected === 'Availability'
+            ? 'btn btn-ghost btn-sm text-teal-400 text-lg font-bold'
+            : 'btn btn-ghost btn-sm text-[#7895B1] text-lg font-bold'
+        }
         onClick={() => onSelect('Availability')}
       >
         Availability
       </button>{' '}
       <button
-        className='btn btn-ghost '
-        style={{
-          backgroundColor: selected === 'Timeliness' ? '#A1A1AA' : undefined,
-        }}
+        className={
+          selected === 'Timeliness'
+            ? 'btn btn-ghost btn-sm text-teal-400 text-lg font-bold'
+            : 'btn btn-ghost btn-sm text-[#7895B1] text-lg font-bold'
+        }
         onClick={() => onSelect('Timeliness')}
       >
         Timeliness

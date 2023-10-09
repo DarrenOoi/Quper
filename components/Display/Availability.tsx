@@ -1,4 +1,6 @@
+import { Key } from 'react';
 import VerticalLine from '../VerticalLine';
+import { findFlagUrlByIso2Code } from 'country-flags-svg';
 
 interface availabilityData {
   languages: string;
@@ -13,6 +15,18 @@ interface AvailabilityProps {
 }
 
 const Availability = ({ availability }: AvailabilityProps) => {
+  const languageToCountryCode: Record<string, string> = {
+    Spanish: 'ES', // Spain
+    Turkish: 'TR', // Turkey
+    Chinese: 'CN', // China
+    Deutsch: 'DE', // Germany
+    Korean: 'KR', // South Korea
+    French: 'FR', // France
+    Italian: 'IT', // Italy
+    Dutch: 'NL', // Netherlands
+    Portuguese: 'PT', // Portugal
+  };
+
   var languageArray = [];
   if (availability) {
     languageArray = JSON.parse(availability.languages);
@@ -43,19 +57,60 @@ const Availability = ({ availability }: AvailabilityProps) => {
 
         {availability ? (
           <div
-            className='bg-white rounded-xl flex flex-col px-10 py-10 justify-center'
+            className='bg-white rounded-xl flex flex-col px-10 py-5 justify-center items-center'
             style={{ width: '900px' }}
           >
-            <p>Languages : {languageArray.join(',')}</p>
-            <h2>External Links</h2>
-            <ul>
-              {availability.externalLinks.map((linkInfo, index) => (
-                <li key={index}>
-                  <a href={linkInfo.link}>{linkInfo.link}</a>
-                  <p>Status Code: {linkInfo.statusCode}</p>
-                </li>
-              ))}
-            </ul>
+            <div style={{ width: '370px' }}>
+              <h2 className='text-xl font-semibold mt-4 mb-2'>
+                Languages Available
+              </h2>
+            </div>
+            {languageArray.map((language: string, index: Key) => (
+              <div
+                className='flex flex-row mt-1 mb-1'
+                style={{ width: '200px' }}
+              >
+                <img
+                  src={findFlagUrlByIso2Code(languageToCountryCode[language])}
+                  className='opacity-70 mt-1 mr-10'
+                  style={{ width: '25px', height: '20px' }}
+                />
+                <p key={index}>{language}</p>
+              </div>
+            ))}
+            <div>
+              <h2 className='text-xl font-semibold mt-4 mb-2'>
+                External Links
+              </h2>
+              <ul>
+                {availability.externalLinks.map((linkInfo, index) => (
+                  <li key={index} className='mb-2'>
+                    <a
+                      href={linkInfo.link}
+                      className='text-blue-500 hover:underline'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      {linkInfo.link}
+                    </a>
+                    <br></br>
+                    <div className='stats shadow'>
+                      <div className='stat'>
+                        <div className='stat-title text-gray-600'>
+                          Status Code
+                        </div>
+                        <div className='stat-value text-green-500'>
+                          {linkInfo.statusCode}
+                        </div>
+                        <div className='stat-desc text-gray-600'>
+                          the request was successful
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         ) : (
           <div className='flex justify-center items-center'>

@@ -30,23 +30,24 @@ function MetricsTable({ metrics }: MetricsProps) {
                   </div> */}
                   <div>
                     <div className='font-bold'>{metric}</div>
-                    {/* <div className='text-sm opacity-50'>United States</div> */}
                   </div>
                 </div>
               </td>
               <td>
                 {value}
                 <br />
-                {/* <span className='badge badge-ghost badge-sm'>
-                  Desktop Support Technician
-                </span> */}
               </td>
               {/* <td>
                 A linguistic metric that calculates the average number of
                 syllables contained within each word.
               </td> */}
               <th>
-                <button className='btn btn-ghost btn-xs'>details</button>
+                <div
+                  className='tooltip tooltip-left'
+                  data-tip='An ARI score of 24.45 indicates an extremely high level of text complexity, suitable for advanced readers, often found in academic and technical content.'
+                >
+                  <button className='btn btn-ghost btn-xs'>details</button>
+                </div>
               </th>
             </tr>
           ))}

@@ -1,7 +1,9 @@
 export const fetchTimeliness = async (url: string) => {
   try {
     const response = await fetch(
-      'https://34.28.198.83:8000/timeliness',
+      // 'https://34.28.198.83:8000/timeliness',
+      'http://localhost:5000/timeliness',
+
       // 'https://quper-backend.onrender.com/timeliness',
       {
         method: 'POST',
