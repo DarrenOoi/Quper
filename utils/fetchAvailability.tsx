@@ -1,8 +1,7 @@
 export const fetchAvailability = async (url: string) => {
   try {
-    const response = await fetch('http://localhost:5000/availability', {
-      // const response = await fetch('https://34.28.198.83:8000/availability', {
-
+    // const response = await fetch('http://localhost:5000/availability', {
+    const response = await fetch('https://34.28.198.83:8000/availability', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
