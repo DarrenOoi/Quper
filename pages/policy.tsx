@@ -68,7 +68,7 @@ const Policy: NextPage = () => {
   };
 
   return (
-    <div className='bg-gray-100'>
+    <div className='bg-gray-100 h-max'>
       <Head>
         <title>QuPer</title>
       </Head>

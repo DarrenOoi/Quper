@@ -34,8 +34,8 @@ const Availability = ({ availability }: AvailabilityProps) => {
   }
 
   return (
-    <div className='container mx-auto mt-8 h-screen'>
-      <div className='mx-64 my-4'>
+    <div className='container mx-auto mt-8'>
+      <div className='my-4 mx-auto w-8/12	'>
         <text className='text-black font-bold text-xl'>
           <text className='text-teal-400'>AVAILABILITY</text> checks if the
           privacy policy, especially those with external links or multiple
@@ -46,7 +46,7 @@ const Availability = ({ availability }: AvailabilityProps) => {
           made.
         </text>
       </div>
-      <div className='mx-auto flex justify-center mt-12'>
+      <div className='mx-auto flex justify-center mt-4'>
         {/* <h2 className='text-3xl md:text-4xl font-bold mb-4 text-center'>
           Availability
         </h2> */}
@@ -57,19 +57,19 @@ const Availability = ({ availability }: AvailabilityProps) => {
         )}
 
         {availability ? (
-          <div
-            className='bg-white rounded-xl flex flex-col px-10 py-5 justify-center items-center'
-            style={{ width: '900px' }}
-          >
-            <div style={{ width: '370px' }}>
+          <div className='bg-white rounded-xl flex flex-col px-10 py-5 justify-center items-center w-8/12 my-5'>
+            <div
+              className='mr-auto mb-2'
+              // style={{ width: '370px' }}
+            >
               <h2 className='text-xl font-semibold mt-4 mb-2'>
                 Languages Available
               </h2>
             </div>
             {languageArray.map((language: string, index: Key) => (
               <div
-                className='flex flex-row mt-1 mb-1'
-                style={{ width: '200px' }}
+                className='flex flex-row mt-1 mb-1 w-4/12	'
+                // style={{ width: '200px' }}
               >
                 <img
                   src={findFlagUrlByIso2Code(languageToCountryCode[language])}
@@ -79,10 +79,10 @@ const Availability = ({ availability }: AvailabilityProps) => {
                 <p key={index}>{language}</p>
               </div>
             ))}
+            <h2 className='text-xl font-semibold mt-4 mb-2 mr-auto'>
+              External Links
+            </h2>
             <div>
-              <h2 className='text-xl font-semibold mt-4 mb-2'>
-                External Links
-              </h2>
               <ul>
                 {availability.externalLinks.map((linkInfo, index) => (
                   <li key={index} className='mb-2'>

@@ -15,8 +15,8 @@ interface TimelinessProps {
 
 const Timeliness = ({ result, error }: TimelinessProps) => {
   return (
-    <div className='container mx-auto mt-8 h-screen'>
-      <div className='mx-64 my-4'>
+    <div className='container mx-auto mt-8 bg-gray-100'>
+      <div className='my-4 mx-auto w-8/12	'>
         <text className='text-black font-bold text-xl'>
           <text className='text-teal-400'>TIMELINESS </text>means that the
           privacy policy is made available to users as soon as they start using
@@ -26,7 +26,7 @@ const Timeliness = ({ result, error }: TimelinessProps) => {
           reflecting any changes in the app's data practices or privacy laws.
         </text>
       </div>
-      <div className='mx-auto flex justify-center mt-12'>
+      <div className='mx-auto flex justify-center mt-4'>
         {/* <h2 className='text-3xl md:text-4xl font-bold mb-4 text-center'>
           Timeliness
         </h2> */}
@@ -36,10 +36,7 @@ const Timeliness = ({ result, error }: TimelinessProps) => {
           </div>
         )}
         {result ? (
-          <div
-            className='bg-white rounded-xl px-10 flex flex-col justify-center items-center'
-            style={{ width: '900px' }}
-          >
+          <div className='bg-white rounded-xl px-10 py-36	 flex flex-col justify-center items-center w-8/12 my-5'>
             <div className='grid grid-cols-2 gap-10'>
               <div
                 className='tooltip tooltip-top'

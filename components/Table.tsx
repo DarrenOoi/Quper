@@ -4,7 +4,7 @@ interface MetricsProps {
 
 function MetricsTable({ metrics }: MetricsProps) {
   return (
-    <div className='overflow-x-auto'>
+    <div>
       <table className='table'>
         {/* head */}
         <thead>
@@ -43,7 +43,7 @@ function MetricsTable({ metrics }: MetricsProps) {
               </td> */}
               <th>
                 <div
-                  className='tooltip tooltip-left'
+                  className='tooltip tooltip-top'
                   data-tip='An ARI score of 24.45 indicates an extremely high level of text complexity, suitable for advanced readers, often found in academic and technical content.'
                 >
                   <button className='btn btn-ghost btn-xs'>details</button>

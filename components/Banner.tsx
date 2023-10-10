@@ -77,8 +77,8 @@ const Banner = () => {
               }
             }}
             placeholder='Input Privacy Policy URL'
-            className='input input-bordered bg-white text-black rounded-full'
-            style={{ width: '600px' }}
+            className='input input-bordered bg-white text-black rounded-full w-96'
+            // style={{ width: '600px' }}
           />
           <Button
             text='Click for the'

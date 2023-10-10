@@ -24,8 +24,8 @@ interface CompletenessProps {
 
 const Completeness = ({ result, error }: CompletenessProps) => {
   return (
-    <div className='container mx-auto mt-8 h-screen'>
-      <div className='mx-64 my-4'>
+    <div className='container mx-auto mt-8 '>
+      <div className='my-4 mx-auto w-8/12	'>
         <text className='text-black font-bold text-xl'>
           <text className='text-teal-400'>COMPLETENESS</text> ensures that the
           privacy policy provides all the necessary information about how user
@@ -38,17 +38,14 @@ const Completeness = ({ result, error }: CompletenessProps) => {
         Completeness
       </h2> */}
 
-      <div className='mx-auto flex justify-center mt-12'>
+      <div className='mx-auto flex justify-center mt-4'>
         {result && (
           <div className='flex items-center justify-center'>
             <VerticalLine />
           </div>
         )}
         {result ? (
-          <div
-            className='bg-white rounded-xl px-10 flex flex-col justify-center'
-            style={{ width: '900px' }}
-          >
+          <div className='bg-white rounded-xl px-10 flex flex-col justify-center items-center w-8/12 my-5'>
             {/* <p>Type: {result.type}</p>
             <p>Cookie: {result.cookie}</p>
             <p>Share: {result.share}</p>
