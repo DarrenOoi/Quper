@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import FileForm from './FileForm';
+import Typewriter from 'typewriter-effect';
 import Button from './Button';
 
 const Banner = () => {
@@ -58,10 +59,21 @@ const Banner = () => {
             mixBlendMode: 'multiply',
           }}
         />
-        <h2 className='text-4xl font-bold mb-8'>
-          Welcome to QuPer - Your Trusted Privacy Policy Analysing Tool
-        </h2>
-        <p className='text-lg leading-relaxed text-center mb-8'>
+        {/* <div className='text-4xl font-bold mb-2 flex flex-row mb-8'>
+          <h2>Welcome to Quper - Your Trusted Privacy Policy Analysing Tool</h2>
+        </div> */}
+
+        <div className='text-4xl font-bold mb-2 flex flex-row mb-8'>
+          <Typewriter
+            options={{
+              strings: ['Welcome to Quper!'],
+              autoStart: true,
+              loop: true,
+            }}
+          />
+        </div>
+
+        <p className='text-lg leading-relaxed text-center mb-2'>
           Introducing QuPer - the comprehensive privacy policy analysing tool
           designed to simplify the process and help you stay compliant
           effortlessly.
