@@ -10,8 +10,8 @@ const ButtonGroup = (props: Props) => {
       <button
         className={
           selected === 'Completeness'
-            ? 'btn btn-ghost btn-sm text-teal-400 text-lg font-bold'
-            : 'btn btn-ghost btn-sm text-[#7895B1] text-lg font-bold'
+            ? 'btn btn-ghost btn-xs text-teal-400 text-lg font-bold'
+            : 'btn btn-ghost btn-xs text-[#7895B1] text-lg font-bold'
         }
         onClick={() => onSelect('Completeness')}
       >
@@ -20,8 +20,8 @@ const ButtonGroup = (props: Props) => {
       <button
         className={
           selected === 'Readability'
-            ? 'btn btn-ghost btn-sm text-teal-400 text-lg font-bold'
-            : 'btn btn-ghost btn-sm text-[#7895B1] text-lg font-bold'
+            ? 'btn btn-ghost btn-xs text-teal-400 text-lg font-bold'
+            : 'btn btn-ghost btn-xs text-[#7895B1] text-lg font-bold'
         }
         onClick={() => onSelect('Readability')}
       >
@@ -30,8 +30,8 @@ const ButtonGroup = (props: Props) => {
       <button
         className={
           selected === 'Availability'
-            ? 'btn btn-ghost btn-sm text-teal-400 text-lg font-bold'
-            : 'btn btn-ghost btn-sm text-[#7895B1] text-lg font-bold'
+            ? 'btn btn-ghost btn-xs text-teal-400 text-lg font-bold'
+            : 'btn btn-ghost btn-xs text-[#7895B1] text-lg font-bold'
         }
         onClick={() => onSelect('Availability')}
       >
@@ -40,8 +40,8 @@ const ButtonGroup = (props: Props) => {
       <button
         className={
           selected === 'Timeliness'
-            ? 'btn btn-ghost btn-sm text-teal-400 text-lg font-bold'
-            : 'btn btn-ghost btn-sm text-[#7895B1] text-lg font-bold'
+            ? 'btn btn-ghost btn-xs text-teal-400 text-lg font-bold'
+            : 'btn btn-ghost btn-xs text-[#7895B1] text-lg font-bold'
         }
         onClick={() => onSelect('Timeliness')}
       >

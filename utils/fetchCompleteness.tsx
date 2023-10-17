@@ -1,7 +1,8 @@
 export const fetchCompleteness = async (url: string) => {
   try {
     const response = await fetch(
-      'https://34.28.198.83:8000/completeness',
+      // 'https://34.28.198.83:8000/completeness',
+      'https://quperbackend.uqcloud.net/completeness',
       // 'https://quper-backend.onrender.com/completeness',
       // 'http://localhost:5000/completeness',
 

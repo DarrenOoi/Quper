@@ -49,10 +49,10 @@ const Policy: NextPage = () => {
 
           // const readabilityData = await fetchReadability(url);
           setReadability(JSON.parse(readabilityData));
-          const availabilityData = await fetchAvailability(url);
-          setAvailability(JSON.parse(availabilityData));
-          const timelinessData = await fetchTimeliness(url);
-          setTimeliness(timelinessData);
+          // const availabilityData = await fetchAvailability(url);
+          // setAvailability(JSON.parse(availabilityData));
+          // const timelinessData = await fetchTimeliness(url);
+          // setTimeliness(timelinessData);
         } catch (error) {
           console.error('Error fetching data or analysis:', error);
           setError(true);
@@ -68,7 +68,7 @@ const Policy: NextPage = () => {
   };
 
   return (
-    <div className='bg-gray-100 h-max'>
+    <div className='bg-gray-100 min-h-screen'>
       <Head>
         <title>QuPer</title>
       </Head>
@@ -76,7 +76,7 @@ const Policy: NextPage = () => {
       <div className='m-4'>
         <Button text='Back to' handleClick={handleClick} boldText='Input' />
       </div>
-      <div className='flex justify-center py-5'>
+      <div className='flex justify-center items-center py-5'>
         <ButtonGroup onSelect={handleItemSelected} selected={selectedItem} />
       </div>
       <div className='flex'>

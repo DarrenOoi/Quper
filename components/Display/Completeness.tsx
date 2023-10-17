@@ -64,7 +64,7 @@ const Completeness = ({ result, error }: CompletenessProps) => {
         ) : error ? (
           <p>An error has occurred</p>
         ) : (
-          <div className='flex justify-center items-center'>
+          <div className='flex justify-center items-center '>
             <span className='loading loading-spinner loading-lg'></span>
           </div>
         )}
