@@ -17,6 +17,7 @@ export default async function timelinessRoute(
         },
         body: JSON.stringify({ url: url }),
         agent,
+        timeout: 30000, // 30 seconds
       });
 
       if (response.ok) {
