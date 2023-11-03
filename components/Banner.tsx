@@ -63,7 +63,7 @@ const Banner = () => {
           <h2>Welcome to Quper - Your Trusted Privacy Policy Analysing Tool</h2>
         </div> */}
 
-        <div className='text-4xl font-bold mb-2 flex flex-row mb-8'>
+        <div className='text-4xl font-bold mb-2 flex flex-row mb-4'>
           <Typewriter
             options={{
               strings: ['Welcome to Quper!'],

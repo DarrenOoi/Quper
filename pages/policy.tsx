@@ -49,8 +49,8 @@ const Policy: NextPage = () => {
 
           // const readabilityData = await fetchReadability(url);
           setReadability(JSON.parse(readabilityData));
-          // const availabilityData = await fetchAvailability(url);
-          // setAvailability(JSON.parse(availabilityData));
+          const availabilityData = await fetchAvailability(url);
+          setAvailability(JSON.parse(availabilityData));
           // const timelinessData = await fetchTimeliness(url);
           // setTimeliness(timelinessData);
         } catch (error) {
