@@ -1,6 +1,7 @@
 export const fetchAvailability = async (url: string) => {
   try {
-    const response = await fetch(`/api/availabilityRoute?url=${url}`, {
+    //const response = await fetch(`/api/availabilityRoute?url=${url}`, {
+    const response = await fetch(`/api/availabilityRoute`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
