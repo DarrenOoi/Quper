@@ -10,7 +10,7 @@ export default async function timelinessRoute(
     const fetch = require('node-fetch');
     const agent = new https.Agent({ rejectUnauthorized: false });
     try {
-      const response = await fetch('https://34.28.198.83:8000/timeliness', {
+      const response = await fetch('http://34.28.198.83:8000/timeliness', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
