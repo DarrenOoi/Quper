@@ -84,7 +84,7 @@ const Availability = ({ availability }: AvailabilityProps) => {
             </h2>
             <div>
               <ul>
-                {availability.externalLinks.map((linkInfo, index) => (
+                {availability.externalLinks.map((linkInfo, index: Key) => (
                   <li key={index} className='mb-2'>
                     <a
                       href={linkInfo.link}
