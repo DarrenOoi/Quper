@@ -51,8 +51,8 @@ const Policy: NextPage = () => {
           setReadability(JSON.parse(readabilityData));
           const availabilityData = await fetchAvailability(url);
           setAvailability(JSON.parse(availabilityData));
-          const timelinessData = await fetchTimeliness(url);
-          setTimeliness(timelinessData);
+          // const timelinessData = await fetchTimeliness(url);
+          // setTimeliness(timelinessData);
         } catch (error) {
           console.error('Error fetching data or analysis:', error);
           setError(true);
