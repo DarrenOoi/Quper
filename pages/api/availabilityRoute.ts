@@ -52,10 +52,10 @@ export default async function availabilityRoute(
       // });
       return new Response(
         JSON.stringify({
-          error: 'An error occurred while fetching from the external API',
+          error: error,
         }),
         {
-          status: 200,
+          status: 500,
           headers: {
             'content-type': 'application/json',
           },

@@ -22,7 +22,7 @@ export const fetchAvailability = async (url: string) => {
     }
   } catch (error) {
     // console.error('Error:', error);
-    console.error('Error occurred in fetch availability');
+    console.error('Error occurred in fetch availability', error);
 
     return false;
   }
