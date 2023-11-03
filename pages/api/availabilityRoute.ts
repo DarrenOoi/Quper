@@ -50,6 +50,17 @@ export default async function availabilityRoute(
       // res.status(500).json({
       //   error: 'An error occurred while fetching from the external API',
       // });
+      return new Response(
+        JSON.stringify({
+          error: 'An error occurred while fetching from the external API',
+        }),
+        {
+          status: 200,
+          headers: {
+            'content-type': 'application/json',
+          },
+        }
+      );
     }
   } else {
     // res.status(405).json({ error: 'Method not allowed' });

@@ -21,7 +21,9 @@ export const fetchAvailability = async (url: string) => {
       return null;
     }
   } catch (error) {
-    console.error('Error:', error);
+    // console.error('Error:', error);
+    console.error('Error occurred in fetch availability');
+
     return false;
   }
 };

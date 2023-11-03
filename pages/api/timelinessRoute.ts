@@ -6,9 +6,6 @@ export default async function timelinessRoute(
 ) {
   if (req.method === 'POST') {
     const { url } = req.body;
-    const https = require('https');
-    const fetch = require('node-fetch');
-    const agent = new https.Agent({ rejectUnauthorized: false });
     try {
       const response = await fetch('http://34.28.198.83:8000/timeliness', {
         method: 'POST',
@@ -16,8 +13,6 @@ export default async function timelinessRoute(
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ url: url }),
-        agent,
-        timeout: 30000, // 30 seconds
       });
 
       if (response.ok) {
