@@ -50,11 +50,6 @@ const Availability = ({ availability }: AvailabilityProps) => {
         {/* <h2 className='text-3xl md:text-4xl font-bold mb-4 text-center'>
           Availability
         </h2> */}
-        {availability && (
-          <div className='flex items-center justify-center'>
-            <VerticalLine />
-          </div>
-        )}
 
         {availability ? (
           <div className='bg-white rounded-xl flex flex-col px-10 py-5 justify-center items-center w-8/12 my-5'>
@@ -71,11 +66,11 @@ const Availability = ({ availability }: AvailabilityProps) => {
                 className='flex flex-row mt-1 mb-1 w-4/12	'
                 // style={{ width: '200px' }}
               >
-                <img
+                {/* <img
                   src={findFlagUrlByIso2Code(languageToCountryCode[language])}
                   className='opacity-70 mt-1 mr-10'
                   style={{ width: '25px', height: '20px' }}
-                />
+                /> */}
                 <p key={index}>{language}</p>
               </div>
             ))}

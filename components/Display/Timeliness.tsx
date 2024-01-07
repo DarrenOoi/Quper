@@ -30,14 +30,9 @@ const Timeliness = ({ result, error }: TimelinessProps) => {
         {/* <h2 className='text-3xl md:text-4xl font-bold mb-4 text-center'>
           Timeliness
         </h2> */}
-        {result && (
-          <div className='flex items-center justify-center'>
-            <VerticalLine />
-          </div>
-        )}
         {result ? (
           <div className='bg-white rounded-xl px-10 py-36	 flex flex-col justify-center items-center w-8/12 my-5'>
-            <div className='grid grid-cols-2 gap-10'>
+            <div className='grid grid-rows-2'>
               <div
                 className='tooltip tooltip-top'
                 data-tip='This date represents the first date the privacy policy was uploaded.'

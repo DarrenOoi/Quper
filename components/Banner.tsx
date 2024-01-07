@@ -78,7 +78,7 @@ const Banner = () => {
           designed to simplify the process and help you stay compliant
           effortlessly.
         </p>
-        <div className='flex my-2'>
+        <div className='flex flex-col md:flex-row my-2'>
           <input
             type='text'
             value={query}
@@ -92,11 +92,13 @@ const Banner = () => {
             className='input input-bordered bg-white text-black rounded-full w-96'
             // style={{ width: '600px' }}
           />
-          <Button
-            text='Click for the'
-            boldText='Analysis'
-            handleClick={handleSearch}
-          />
+          <div className='md: mt-4 flex justify-center'>
+            <Button
+              text='Click for the'
+              boldText='Analysis'
+              handleClick={handleSearch}
+            />
+          </div>
         </div>
         {error ? (
           <div className='alert alert-error p-3 flex w-1/3'>

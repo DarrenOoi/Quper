@@ -6,7 +6,7 @@ type Props = {
 const ButtonGroup = (props: Props) => {
   const { selected, onSelect } = props;
   return (
-    <div className='btn-group'>
+    <div className='btn-group flex flex-col md:flex-row'>
       <button
         className={
           selected === 'Completeness'

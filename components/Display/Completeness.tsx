@@ -39,11 +39,6 @@ const Completeness = ({ result, error }: CompletenessProps) => {
       </h2> */}
 
       <div className='mx-auto flex justify-center mt-4'>
-        {result && (
-          <div className='flex items-center justify-center'>
-            <VerticalLine />
-          </div>
-        )}
         {result ? (
           <div className='bg-white rounded-xl px-10 flex flex-col justify-center items-center w-8/12 my-5'>
             {/* <p>Type: {result.type}</p>

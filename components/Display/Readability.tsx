@@ -24,11 +24,11 @@ const Readability = ({ metrics, error }: RedabilityProps) => {
       </h2> */}
       {/* <div className='flex justify-center items-center bg-white rounded-xl'> */}
       <div className='mx-auto flex justify-center mt-4'>
-        {metrics && (
+        {/* {metrics && (
           <div className='flex items-center justify-center'>
             <VerticalLine />
           </div>
-        )}
+        )} */}
         {metrics ? (
           <div className='bg-white rounded-xl px-10 flex justify-center items-center w-8/12 my-5'>
             {' '}

@@ -11,7 +11,7 @@ function MetricsTable({ metrics }: MetricsProps) {
           <tr>
             <th>Metric</th>
             <th>Value</th>
-            <th>Description</th>
+            {/* <th>Description</th> */}
             <th></th>
           </tr>
         </thead>
@@ -19,7 +19,7 @@ function MetricsTable({ metrics }: MetricsProps) {
           {Object.entries(metrics).map(([metric, value]) => (
             <tr key={metric}>
               <td>
-                <div className='flex items-center space-x-3'>
+                <div>
                   {/* <div className='avatar'>
                     <div className='mask mask-squircle w-12 h-12'>
                       <img
@@ -34,21 +34,14 @@ function MetricsTable({ metrics }: MetricsProps) {
                 </div>
               </td>
               <td>
-                {value}
-                <br />
-              </td>
-              {/* <td>
-                A linguistic metric that calculates the average number of
-                syllables contained within each word.
-              </td> */}
-              <th>
                 <div
-                  className='tooltip tooltip-top'
+                  className='lg:tooltip tooltip-top'
                   data-tip='An ARI score of 24.45 indicates an extremely high level of text complexity, suitable for advanced readers, often found in academic and technical content.'
                 >
-                  <button className='btn btn-ghost btn-xs'>details</button>
+                  {value}
                 </div>
-              </th>
+                <br />
+              </td>
             </tr>
           ))}
         </tbody>
