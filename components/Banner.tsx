@@ -92,7 +92,7 @@ const Banner = () => {
             className='input input-bordered bg-white text-black rounded-full w-96'
             // style={{ width: '600px' }}
           />
-          <div className='md: mt-4 flex justify-center'>
+          <div className='mt-4 md:mt-0 flex justify-center'>
             <Button
               text='Click for the'
               boldText='Analysis'
