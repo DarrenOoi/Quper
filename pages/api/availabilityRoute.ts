@@ -11,7 +11,8 @@ export default async function availabilityRoute(
     // const fetch = require('node-fetch');
     // const agent = new https.Agent({ rejectUnauthorized: false });
     try {
-      const response = await fetch('http://34.28.198.83:8000/availability', {
+      // const response = await fetch('http://34.28.198.83:8000/availability', {
+      const response = await fetch('https://quperbackend.uqcloud.net/link', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

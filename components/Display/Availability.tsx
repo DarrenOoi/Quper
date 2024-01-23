@@ -4,7 +4,7 @@ import VerticalLine from '../VerticalLine';
 import { findFlagUrlByIso2Code } from 'country-flags-svg';
 
 interface availabilityData {
-  languages: string;
+  // languages: string;
   externalLinks: {
     link: string;
     statusCode: number;
@@ -28,10 +28,11 @@ const Availability = ({ availability }: AvailabilityProps) => {
     Portuguese: 'PT', // Portugal
   };
 
-  var languageArray = [];
-  if (availability) {
-    languageArray = JSON.parse(availability.languages);
-  }
+  //exclude language for now due to selenium requirement
+  // var languageArray = [];
+  // if (availability) {
+  //   languageArray = JSON.parse(availability.languages);
+  // }
 
   return (
     <div className='container mx-auto mt-8'>
@@ -57,23 +58,23 @@ const Availability = ({ availability }: AvailabilityProps) => {
               className='mr-auto mb-2'
               // style={{ width: '370px' }}
             >
-              <h2 className='text-xl font-semibold mt-4 mb-2'>
+              {/* <h2 className='text-xl font-semibold mt-4 mb-2'>
                 Languages Available
-              </h2>
+              </h2> */}
             </div>
-            {languageArray.map((language: string, index: Key) => (
+            {/*languageArray.map((language: string, index: Key) => (
               <div
                 className='flex flex-row mt-1 mb-1 w-4/12	'
                 // style={{ width: '200px' }}
               >
-                {/* <img
+                { <img
                   src={findFlagUrlByIso2Code(languageToCountryCode[language])}
                   className='opacity-70 mt-1 mr-10'
                   style={{ width: '25px', height: '20px' }}
-                /> */}
+                /> }
                 <p key={index}>{language}</p>
               </div>
-            ))}
+            ))*/}
             <h2 className='text-xl font-semibold mt-4 mb-2 mr-auto'>
               External Links
             </h2>
