@@ -3,6 +3,11 @@ interface MetricsProps {
 }
 
 function MetricsTable({ metrics }: MetricsProps) {
+  const descriptions: Record<string, string> = {
+    ARI: 'ARI 1-3: Very easy. \nARI 4-6: Easy.\nARI 7-9: Fairly easy.\nARI 10-12: Standard.\nARI 13-15: Fairly difficult.\nARI 16-18: Difficult.\nARI 19 and above: Very difficult.',
+    FRES: '90-100: Very easy. 80-89: Easy. 70-79: Fairly easy. 60-69: Standard. 0-59: Difficult.',
+    LIX: 'LIX below 30: Easy reading. \n LIX 30-40: Standard readability.\n LIX above 40: Complex or technical content.',
+  };
   return (
     <div>
       <table className='table'>
@@ -29,17 +34,19 @@ function MetricsTable({ metrics }: MetricsProps) {
                     </div>
                   </div> */}
                   <div>
-                    <div className='font-bold'>{metric}</div>
+                    <div className='font-bold'>
+                      <div
+                        className='lg:tooltip tooltip-top'
+                        data-tip={descriptions[metric]}
+                      >
+                        {metric}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </td>
               <td>
-                <div
-                  className='lg:tooltip tooltip-top'
-                  data-tip='An ARI score of 24.45 indicates an extremely high level of text complexity, suitable for advanced readers, often found in academic and technical content.'
-                >
-                  {value}
-                </div>
+                {value}
                 <br />
               </td>
             </tr>
