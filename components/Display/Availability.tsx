@@ -2,20 +2,24 @@ import { Key } from 'react';
 import VerticalLine from '../VerticalLine';
 // @ts-ignore
 import { findFlagUrlByIso2Code } from 'country-flags-svg';
+import { link } from 'fs';
 
-interface availabilityData {
+interface linksData {
   // languages: string;
   externalLinks: {
     link: string;
     statusCode: number;
   }[];
 }
-
+// interface languagesData {
+//   languages: string;
+// }
 interface AvailabilityProps {
-  availability: availabilityData | null;
+  links: linksData | null;
+  // languages: languagesData | null;
 }
 
-const Availability = ({ availability }: AvailabilityProps) => {
+const Availability = ({ links }: AvailabilityProps) => {
   const languageToCountryCode: Record<string, string> = {
     Spanish: 'ES', // Spain
     Turkish: 'TR', // Turkey
@@ -30,8 +34,8 @@ const Availability = ({ availability }: AvailabilityProps) => {
 
   //exclude language for now due to selenium requirement
   // var languageArray = [];
-  // if (availability) {
-  //   languageArray = JSON.parse(availability.languages);
+  // if (languages) {
+  //   languageArray = JSON.parse(languages.languages);
   // }
 
   return (
@@ -52,7 +56,7 @@ const Availability = ({ availability }: AvailabilityProps) => {
           Availability
         </h2> */}
 
-        {availability ? (
+        {links ? (
           <div className='bg-white rounded-xl flex flex-col px-10 py-5 justify-center items-center w-8/12 my-5'>
             <div
               className='mr-auto mb-2'
@@ -62,7 +66,7 @@ const Availability = ({ availability }: AvailabilityProps) => {
                 Languages Available
               </h2> */}
             </div>
-            {/*languageArray.map((language: string, index: Key) => (
+            {/* {languageArray.map((language: string, index: Key) => (
               <div
                 className='flex flex-row mt-1 mb-1 w-4/12	'
                 // style={{ width: '200px' }}
@@ -74,13 +78,16 @@ const Availability = ({ availability }: AvailabilityProps) => {
                 /> }
                 <p key={index}>{language}</p>
               </div>
-            ))*/}
+            ))} */}
             <h2 className='text-xl font-semibold mt-4 mb-2 mr-auto'>
               External Links
             </h2>
             <div>
               <ul>
-                {availability.externalLinks.map((linkInfo, index: Key) => (
+                {links.externalLinks.length === 0 && (
+                  <p>No external links found. </p>
+                )}
+                {links.externalLinks.map((linkInfo, index: Key) => (
                   <li key={index} className='mb-2'>
                     <a
                       href={linkInfo.link}
@@ -96,12 +103,27 @@ const Availability = ({ availability }: AvailabilityProps) => {
                         <div className='stat-title text-gray-600'>
                           Status Code
                         </div>
-                        <div className='stat-value text-green-500'>
-                          {linkInfo.statusCode}
-                        </div>
-                        <div className='stat-desc text-gray-600'>
-                          the request was successful
-                        </div>
+                        {linkInfo.statusCode === 200 ? (
+                          <div>
+                            <div className='stat-value text-green-500'>
+                              {linkInfo.statusCode}
+                            </div>
+                            <div className='stat-desc text-gray-600'>
+                              The request was successful, the link is
+                              accessible.
+                            </div>
+                          </div>
+                        ) : (
+                          <div>
+                            <div className='stat-value text-orange-500'>
+                              {linkInfo.statusCode}
+                            </div>
+                            <div className='stat-desc text-gray-600'>
+                              The request was not successful, the link is not
+                              accessible.
+                            </div>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </li>

@@ -14,8 +14,8 @@ import Readability from '@/components/Display/Readability';
 import Timeliness from '@/components/Display/Timeliness';
 import { fetchTimeliness } from '@/utils/fetchTimeliness';
 import ButtonGroup from '@/components/ButtonGroup';
-import Footer from '@/components/Footer';
 import VerticalLine from '@/components/VerticalLine';
+import { fetchLinks } from '@/utils/fetchLinks';
 
 const Policy: NextPage = () => {
   const router = useRouter();
@@ -27,7 +27,8 @@ const Policy: NextPage = () => {
 
   const [selectedItem, setSelectedItem] = useState('Completeness');
   const [completeness, setCompleteness] = useState(null);
-  const [availability, setAvailability] = useState(null);
+  const [links, setLinks] = useState(null);
+  const [languages, setLanguages] = useState(null);
   const [readability, setReadability] = useState(null);
   const [timeliness, setTimeliness] = useState(null);
 
@@ -49,8 +50,10 @@ const Policy: NextPage = () => {
 
           // const readabilityData = await fetchReadability(url);
           setReadability(JSON.parse(readabilityData));
-          const availabilityData = await fetchAvailability(url);
-          setAvailability(JSON.parse(availabilityData));
+          // const availabilityData = await fetchAvailability(url);
+          // setLanguages(JSON.parse(availabilityData));
+          const linksData = await fetchLinks(url);
+          setLinks(JSON.parse(linksData));
           const timelinessData = await fetchTimeliness(url);
           setTimeliness(timelinessData);
         } catch (error) {
@@ -98,7 +101,7 @@ const Policy: NextPage = () => {
           )}
           {selectedItem === 'Availability' && (
             <div>
-              <Availability availability={availability} />
+              <Availability links={links} />
             </div>
           )}
           {selectedItem === 'Timeliness' && (
