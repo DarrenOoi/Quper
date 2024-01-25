@@ -1,5 +1,4 @@
 import { Key } from 'react';
-import VerticalLine from '../VerticalLine';
 // @ts-ignore
 import { findFlagUrlByIso2Code } from 'country-flags-svg';
 import { link } from 'fs';
@@ -124,16 +123,19 @@ const Availability = ({ links }: AvailabilityProps) => {
                           <div className='stat-title text-gray-600'>
                             Status Code
                           </div>
-                          <div>
-                            <div
-                              className={`stat-value text-${
-                                linkInfo.statusCode === 200 ? 'green' : 'orange'
-                              }-500`}
-                            >
-                              {linkInfo.statusCode}
+                          {linkInfo.statusCode === 200 ? (
+                            <div>
+                              <div className='stat-value text-green-500'>
+                                {linkInfo.statusCode}
+                              </div>
                             </div>
-                          </div>
-
+                          ) : (
+                            <div>
+                              <div className='stat-value text-orange-500'>
+                                {linkInfo.statusCode}
+                              </div>
+                            </div>
+                          )}
                           <div className='stat-desc text-gray-600'>
                             {statusCode[linkInfo.statusCode]}
                           </div>
