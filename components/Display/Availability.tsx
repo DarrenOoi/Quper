@@ -87,47 +87,56 @@ const Availability = ({ links }: AvailabilityProps) => {
                 {links.externalLinks.length === 0 && (
                   <p>No external links found. </p>
                 )}
-                {links.externalLinks.map((linkInfo, index: Key) => (
-                  <li key={index} className='mb-2'>
-                    <a
-                      href={linkInfo.link}
-                      className='text-blue-500 hover:underline'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      {linkInfo.link}
-                    </a>
-                    <br></br>
-                    <div className='stats shadow'>
-                      <div className='stat'>
-                        <div className='stat-title text-gray-600'>
-                          Status Code
+                {links.externalLinks.map((linkInfo, index) => {
+                  const isSmallScreen = window.innerWidth < 500;
+                  const maxLength = isSmallScreen ? 30 : 50; // Set different max lengths for small and large screens
+
+                  // Truncate link text if it exceeds maxLength
+                  const displayText =
+                    linkInfo.link.length > maxLength
+                      ? `${linkInfo.link.substring(0, maxLength)}...`
+                      : linkInfo.link;
+
+                  return (
+                    <li key={index} className='mb-2'>
+                      <a
+                        href={linkInfo.link}
+                        className='text-blue-500 hover:underline'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                      >
+                        {displayText}
+                      </a>
+                      <br></br>
+                      <div className='stats shadow'>
+                        <div className='stat'>
+                          <div className='stat-title text-gray-600'>
+                            Status Code
+                          </div>
+                          {linkInfo.statusCode === 200 ? (
+                            <div>
+                              <div className='stat-value text-green-500'>
+                                {linkInfo.statusCode}
+                              </div>
+                              <div className='stat-desc text-gray-600'>
+                                Successful, the link is accessible.
+                              </div>
+                            </div>
+                          ) : (
+                            <div>
+                              <div className='stat-value text-orange-500'>
+                                {linkInfo.statusCode}
+                              </div>
+                              <div className='stat-desc text-gray-600'>
+                                Unsuccessful, the link is not accessible.
+                              </div>
+                            </div>
+                          )}
                         </div>
-                        {linkInfo.statusCode === 200 ? (
-                          <div>
-                            <div className='stat-value text-green-500'>
-                              {linkInfo.statusCode}
-                            </div>
-                            <div className='stat-desc text-gray-600'>
-                              The request was successful, the link is
-                              accessible.
-                            </div>
-                          </div>
-                        ) : (
-                          <div>
-                            <div className='stat-value text-orange-500'>
-                              {linkInfo.statusCode}
-                            </div>
-                            <div className='stat-desc text-gray-600'>
-                              The request was not successful, the link is not
-                              accessible.
-                            </div>
-                          </div>
-                        )}
                       </div>
-                    </div>
-                  </li>
-                ))}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>
