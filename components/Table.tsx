@@ -6,7 +6,7 @@ function MetricsTable({ metrics }: MetricsProps) {
   const descriptions: Record<string, string> = {
     ARI: 'ARI 1-3: Very easy. \nARI 4-6: Easy.\nARI 7-9: Fairly easy.\nARI 10-12: Standard.\nARI 13-15: Fairly difficult.\nARI 16-18: Difficult.\nARI 19 and above: Very difficult.',
     FRES: '90-100: Very easy. 80-89: Easy. 70-79: Fairly easy. 60-69: Standard. 0-59: Difficult.',
-    LIX: 'LIX below 30: Easy reading. \n LIX 30-40: Standard readability.\n LIX above 40: Complex or technical content.',
+    LIX: '0-29 : Very easy. 30-39 : Easy. 40-49 : A little difficult. 50-59 : Difficult. >60 : Very difficult.',
   };
   return (
     <div>
@@ -36,7 +36,7 @@ function MetricsTable({ metrics }: MetricsProps) {
                   <div>
                     <div className='font-bold'>
                       <div
-                        className='lg:tooltip tooltip-top'
+                        className='tooltip tooltip-top'
                         data-tip={descriptions[metric]}
                       >
                         {metric}

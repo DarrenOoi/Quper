@@ -32,6 +32,18 @@ const Availability = ({ links }: AvailabilityProps) => {
     Portuguese: 'PT', // Portugal
   };
 
+  const statusCode: Record<string, string> = {
+    200: 'OK - Request successful.',
+    400: 'Bad Request - Syntax error.',
+    401: 'Unauthorized - User identity required.',
+    403: 'Forbidden - Server refusal.',
+    404: 'Not Found - Resource not found.',
+    406: 'Not Acceptable - Request incomplete.',
+    408: 'Timeout - Request timeout.',
+    500: 'Internal Server Error - Internal error.',
+    503: 'Service Unavailable - Server not available.',
+    999: 'Certificate Error - Incorrect SSH certificate.',
+  };
   //exclude language for now due to selenium requirement
   // var languageArray = [];
   // if (languages) {
@@ -42,13 +54,12 @@ const Availability = ({ links }: AvailabilityProps) => {
     <div className='container mx-auto mt-8'>
       <div className='my-4 mx-auto w-8/12	'>
         <text className='text-black font-bold text-xl'>
-          <text className='text-teal-400'>AVAILABILITY</text> checks if the
-          privacy policy, especially those with external links or multiple
-          language versions, is easily accessible. It ensures that users can
-          find and understand the privacy policy, even if it's in different
-          languages or references additional resources, so
-          <text className='text-teal-400'> INFORMED </text> decisions can be
-          made.
+          <text className='text-teal-400'>AVAILABILITY</text> checks the
+          accessibility of the privacy policy, particularly those containing
+          external links, to ensure users can easily find and comprehend it.
+          This guarantees that users can make
+          <text className='text-teal-400'> INFORMED </text> decisions, even if
+          the privacy policy refers to additional resources.
         </text>
       </div>
       <div className='mx-auto flex justify-center mt-4'>
@@ -79,9 +90,9 @@ const Availability = ({ links }: AvailabilityProps) => {
                 <p key={index}>{language}</p>
               </div>
             ))} */}
-            <h2 className='text-xl font-semibold mt-4 mb-2 mr-auto'>
+            {/* <h2 className='text-xl font-semibold mt-4 mb-2 mr-auto'>
               External Links
-            </h2>
+            </h2> */}
             <div>
               <ul>
                 {links.externalLinks.length === 0 && (
@@ -113,25 +124,19 @@ const Availability = ({ links }: AvailabilityProps) => {
                           <div className='stat-title text-gray-600'>
                             Status Code
                           </div>
-                          {linkInfo.statusCode === 200 ? (
-                            <div>
-                              <div className='stat-value text-green-500'>
-                                {linkInfo.statusCode}
-                              </div>
-                              <div className='stat-desc text-gray-600'>
-                                Successful, the link is accessible.
-                              </div>
+                          <div>
+                            <div
+                              className={`stat-value text-${
+                                linkInfo.statusCode === 200 ? 'green' : 'orange'
+                              }-500`}
+                            >
+                              {linkInfo.statusCode}
                             </div>
-                          ) : (
-                            <div>
-                              <div className='stat-value text-orange-500'>
-                                {linkInfo.statusCode}
-                              </div>
-                              <div className='stat-desc text-gray-600'>
-                                Unsuccessful, the link is not accessible.
-                              </div>
-                            </div>
-                          )}
+                          </div>
+
+                          <div className='stat-desc text-gray-600'>
+                            {statusCode[linkInfo.statusCode]}
+                          </div>
                         </div>
                       </div>
                     </li>
