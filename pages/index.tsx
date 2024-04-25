@@ -9,6 +9,10 @@ function Home() {
     <div className='bg-gray-100'>
       <Head>
         <title>QuPer</title>
+        <meta
+          name='description'
+          content='QuPer is your go-to platform for simplifying privacy policies. Easily assess the quality of any privacy policy with just a few clicks.'
+        />
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <NavBar />
