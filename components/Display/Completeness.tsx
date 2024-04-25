@@ -55,6 +55,17 @@ const Completeness = ({ result, error }: CompletenessProps) => {
             <p>Use Data: {result.useData}</p>
             <p>Order: {result.order.join(', ')}</p> */}
             <CardList result={result} />
+            <div className='stats ml-auto mr-20 my-5 w-60 bg-base-100 shadow-xl'>
+              <div className='stat'>
+                <div className='stat-title text-black font-bold text-xl'>
+                  Completeness Score
+                </div>
+                <div className='stat-value text-teal-400'>
+                  {(result.order.length / 12) * 100}%
+                </div>
+                <div className='stat-desc'>21% more than average</div>
+              </div>
+            </div>
           </div>
         ) : error ? (
           <p>An error has occurred</p>

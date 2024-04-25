@@ -74,9 +74,9 @@ const Banner = () => {
         </div>
 
         <p className='text-lg leading-relaxed text-center mb-2'>
-          Introducing QuPer - the ultimate tool for assessing and optimising
-          privacy policy quality, ensuring a seamless and secure experience for
-          users.
+          Introducing QuPer - Privacy Policies Made Easy. Quickly assess the
+          quality of any privacy policy and get an overview with just a few
+          clicks.
         </p>
         <div className='flex flex-col md:flex-row my-2'>
           <input
