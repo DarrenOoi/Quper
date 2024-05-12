@@ -1,17 +1,12 @@
 export const fetchTimeliness = async (url: string) => {
   try {
-    const response = await fetch(
-      `/api/timelinessRoute`,
-      // 'http://localhost:5000/timeliness',
-      // 'https://quper-backend.onrender.com/timeliness',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ url: url }),
-      }
-    );
+    const response = await fetch(`/api/timelinessRoute`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ url: url }),
+    });
 
     if (response.ok) {
       const responseData = await response.json();
@@ -25,7 +20,14 @@ export const fetchTimeliness = async (url: string) => {
         response.status,
         response.statusText
       );
-      return null;
+      //return not found if error fetching timeliness data
+      return {
+        start: 'Not Found',
+        end: 'Not Found',
+        captures: 'Not Found',
+        duplicates: 'Not Found',
+        uniques: 'Not Found',
+      };
     }
   } catch (error) {
     console.error('Error:', error);
