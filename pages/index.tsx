@@ -3,8 +3,14 @@ import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import Banner from '@/components/Banner';
 import Head from 'next/head';
+import { useEffect } from 'react';
+import { fetchHealth } from '@/utils/fetchHealth';
 
 function Home() {
+  useEffect(() => {
+    fetchHealth();
+  }, []);
+
   return (
     <div className='bg-gray-100'>
       <Head>
