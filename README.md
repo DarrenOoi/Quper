@@ -1,3 +1,38 @@
+# Quper
+
+## Folder Structure
+
+```
+├── README.md
+├── components
+│   ├── Display
+│   │ ├── Availability.tsx
+│   │ ├── Completeness.tsx
+│   │ ├── Readability.tsx
+│   │ ├── Timeliness.tsx
+│   ├── Banner.tsx
+│   ├── Button.tsx
+│   ├── Card.tsx
+│   ├── Footer.tsx
+│   ├── NavBar.tsx
+│   ├── Table.tsx
+├── pages
+│   ├── api
+│   │	├── availabilityRoute.ts
+│   │	├── timelinessRoute.ts
+│   │	├── healthRoute.ts
+│   ├── index.tsx
+│   ├── analysis.tsx
+├── utils
+│   ├── fetchAvailability.tsx
+│   ├── fetchCompleteness.tsx
+│   ├── fetchReadability.tsx
+│   ├── fetchTimeliness.tsx
+```
+
+**_Note:_** This tree includes only main files.
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
